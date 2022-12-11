@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="display-3">Treasure hunt</div>
+    <button (click)="scan=!scan">Scan</button>
+    <div class="d-flex justify-content-center mt-4" *ngIf="scan">
+        <zxing-scanner [formats]="allowedFormats" (scanSuccess)="scanSuccessHandler($event)"
+            [delayBetweenScanSuccess]="2000" [timeBetweenScans]="2000"></zxing-scanner>
+    </div>
+</div>
