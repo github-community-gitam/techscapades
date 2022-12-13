@@ -1,10 +1,10 @@
 <div class="d-flex justify-content-center align-items-center h-100">
-    <div class="card p-5" style="width: 400px;">
+    <form class="card p-5" style="width: 400px;" [formGroup]="formData">
         <label class="h4">Login</label>
         <label class="h6 mt-3">Team Captain Gitam Email id</label>
-        <input class="" type="text">
+        <input class="" type="text" formControlName="username">
         <label class="h6 mt-3">Password</label>
-        <input class="" type="text">
-        <button class="mt-4">Login</button>
-    </div>
+        <input class="" type="text" formControlName="password">
+        <button class="mt-4" (click)="login()">Login</button>
+    </form>
 </div>

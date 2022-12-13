@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
       if (res.status) {
         alert('Registered user successfully')
       } else {
-        alert('Error registering user')
+        alert('User already exists')
       }
     })
   }
