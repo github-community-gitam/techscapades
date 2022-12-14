@@ -13,12 +13,13 @@ export class AuthGuard implements CanActivate {
     if ((state.url == '/login' || state.url == '/register') && localStorage.getItem('username')) {
       this.router.navigate(['dashboard'])
       return false
-    } else if (state.url == '/dashboard' && !localStorage.getItem('username')) {
+    }
+    if (state.url == '/dashboard' && !localStorage.getItem('username')) {
       this.router.navigate(['login'])
       return false
-    } else {
-      return true
     }
+    return true
+
   }
 
 }
