@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -30,9 +31,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   register() {
     const pass1 = this.formData.controls.password1.value
@@ -44,7 +43,7 @@ export class RegisterComponent implements OnInit {
       alert('Passwords do not match')
       return
     }
-    this.http.post('https://TreasureHunt.supersum4n.repl.co/register', this.formData.value).subscribe((res: any) => {
+    this.http.post(environment.endpoint + '/register', this.formData.value).subscribe((res: any) => {
       if (res.status) {
         alert('Registered user successfully')
       } else {

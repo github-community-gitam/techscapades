@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     if (!this.formData.valid) {
       alert('Fill all the credentials')
     } else {
-      this.http.post('https://TreasureHunt.supersum4n.repl.co/login', this.formData.value).subscribe((res: any) => {
+      this.http.post(environment.endpoint + '/login', this.formData.value).subscribe((res: any) => {
         if (res.status) {
           localStorage.setItem('username', this.formData.controls.username.value as string)
           localStorage.setItem('password', this.formData.controls.password.value as string)
