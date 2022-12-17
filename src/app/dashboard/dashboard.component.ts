@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BarcodeFormat } from '@zxing/library';
 import { environment } from 'src/environments/environment';
@@ -19,7 +18,7 @@ export class DashboardComponent implements OnInit {
   score = ''
 
   showDialog = false
-  question=''
+  question = ''
   answer = ''
 
   constructor(private http: HttpClient, private router: Router) { }
