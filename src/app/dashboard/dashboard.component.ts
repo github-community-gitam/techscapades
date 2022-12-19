@@ -24,6 +24,10 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.getStats()
+  }
+
+  getStats() {
     this.http.post(environment.endpoint + '/stats', { 'username': localStorage.getItem('username') }).subscribe((res: any) => {
       this.team_name = res.team_name
       this.score = res.score
@@ -55,12 +59,14 @@ export class DashboardComponent implements OnInit {
   checkAnswer() {
     const username = localStorage.getItem('username')
     const answer = this.answer
-    this.http.post(environment.endpoint + '/check-answer', { 'username': username, 'answer': answer.toLowerCase() }).subscribe((res: any) => {
+    this.http.post(environment.endpoint + '/check-answer', { 'username': username, 'answer': answer.toLowerCase().trim() }).subscribe((res: any) => {
       if (res.isCorrect) {
         this.showDialog = false
-        alert(res.isCorrect)
+        this.answer = ''
+        this.getStats()
+        alert('Correct answer')
       } else {
-        alert('Error checking for answer')
+        alert('Wrong Answer')
       }
     })
   }
