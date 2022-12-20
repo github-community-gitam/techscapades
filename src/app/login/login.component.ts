@@ -20,13 +20,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  allowedUsers = ["test1", "test2", "test3", "test4", "test5"]
-
   login() {
     if (!this.formData.valid) {
       alert('Fill all the credentials')
-    } else if (!this.allowedUsers.includes(this.formData.controls.username.value as string)) {
-      alert('Accessible only on event day')
     } else {
       this.http.post(environment.endpoint + '/login', this.formData.value).subscribe((res: any) => {
         if (res.status) {
