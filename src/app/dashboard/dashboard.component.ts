@@ -36,8 +36,13 @@ export class DashboardComponent implements OnInit {
 
   scanSuccessHandler(data: any) {
     this.scan = false
-    if(data.includes('http')){
-      window.open(data, "_blank")
+    if (data.includes('http')) {
+      if (data == 'https://rb.gy/e3qud6') {
+        window.open('https://www.youtube.com/shorts/c1yPILHeRo4', '_blank')
+      } else {
+        window.open(data, "_blank")
+      }
+      console.log(data)
       return
     }
     const username = localStorage.getItem('username')
