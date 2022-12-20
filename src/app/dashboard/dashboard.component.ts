@@ -36,6 +36,10 @@ export class DashboardComponent implements OnInit {
 
   scanSuccessHandler(data: any) {
     this.scan = false
+    if(data.includes('http')){
+      window.open(data, "_blank")
+      return
+    }
     const username = localStorage.getItem('username')
     const hint = window.atob(data)
     this.http.post(environment.endpoint + '/scan', { 'username': username, 'hint': hint }).subscribe((res: any) => {
