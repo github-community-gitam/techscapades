@@ -4,7 +4,7 @@
         <label class="h5">GITAM Hyderabad</label>
     </div>
     <label class="h3 my-4">The event is done.</label>
-    <div class="my-4">
+    <div class="my-4" id="about">
         <label class="h1">About the event</label>
         <div class="fs-4">
             <p>Hey Geeks !!</p>
@@ -15,7 +15,7 @@
             <p>Event date: 20th December 2022</p>
         </div>
     </div>
-    <div class="my-4">
+    <div class="my-4" id="rules">
         <label class="h1">Rules</label>
         <ul class="fs-4">
             <li>Objective of the teams is to solve clues to collect points and unlock the clue to the next step of the
@@ -37,7 +37,7 @@
             <li>First team to reach the treasure and scan the final QR code wins the treasure hunt.</li>
         </ul>
     </div>
-    <div class="my-4">
+    <div class="my-4" id="instructions">
         <label class="h1">Instructions</label>
         <ul class="fs-4">
             <li>Captain of the team has to login using the credentials set up during registration. Teams that have
@@ -57,12 +57,18 @@
             <li>After solving the last question of the hunt, teams will be prompted on the completion of the hunt.</li>
         </ul>
     </div>
-    <div class="my-4">
+    <div class="my-4" id="contact">
         <label class="h1">Have some questions ?</label>
         <br>
         <button class="mb-2" (click)="openWhatsApp(1)">WhatsApp - Karthik</button>
         <br>
         <button class="mb-3" (click)="openWhatsApp(2)">WhatsApp - Lalit</button>
     </div>
+
+    <section class="my-4" id="gallery">
+        <label class="h1">Check out our photos</label>
+        <br>
+        <button class="mb-2" routerLink="gallery">Gallery</button>
+    </section>
 
 </div>
